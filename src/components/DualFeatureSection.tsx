@@ -1,15 +1,25 @@
-import Image10 from '../assets/desktop/image 10.png';
-import Image11 from '../assets/desktop/image 11.png';
+interface FeatureProps {
+    image: string;
+    client: string;
+    description: string;
+    backgroundColor: string;
+}
 
-const EqualSplitSectionTwo = () => {
+interface DualFeatureSectionProps {
+    left: FeatureProps;
+    right: FeatureProps;
+}
+
+const DualFeatureSection = ({ left, right }: DualFeatureSectionProps) => {
     return (
         <section className="w-full grid grid-cols-1 md:grid-cols-2 h-auto md:h-[600px]">
 
-            <div className="relative w-full h-[484px] md:h-full bg-yellow-500 group cursor-pointer overflow-hidden">
+            {/* Left Column */}
+            <div className={`relative w-full h-[484px] md:h-full ${left.backgroundColor} group cursor-pointer overflow-hidden`}>
                 <div className="absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-105">
                     <img
-                        src={Image10}
-                        alt="CHOCOMEL - A campaign for the limited edition letter packs"
+                        src={left.image}
+                        alt={`${left.client} - ${left.description}`}
                         className="w-full h-full object-cover object-center"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
@@ -17,10 +27,10 @@ const EqualSplitSectionTwo = () => {
 
                 <div className="absolute bottom-0 left-0 p-8 md:p-12 z-10 text-white max-w-xl">
                     <div className="uppercase text-xs font-bold tracking-widest mb-4 opacity-90">
-                        CHOCOMEL
+                        {left.client}
                     </div>
                     <h2 className="text-3xl md:text-5xl font-light mb-8 leading-tight">
-                        A campaign for the limited edition letter packs
+                        {left.description}
                     </h2>
                     <div className="flex items-center text-sm font-bold uppercase tracking-wider opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
                         <span className="mr-2">Read more</span>
@@ -29,11 +39,12 @@ const EqualSplitSectionTwo = () => {
                 </div>
             </div>
 
-            <div className="relative w-full h-[484px] md:h-full bg-blue-600 group cursor-pointer overflow-hidden">
+            {/* Right Column */}
+            <div className={`relative w-full h-[484px] md:h-full ${right.backgroundColor} group cursor-pointer overflow-hidden`}>
                 <div className="absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-105">
                     <img
-                        src={Image11}
-                        alt="JBL - Live like a champion with Jerome Boateng"
+                        src={right.image}
+                        alt={`${right.client} - ${right.description}`}
                         className="w-full h-full object-cover object-center"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
@@ -41,10 +52,10 @@ const EqualSplitSectionTwo = () => {
 
                 <div className="absolute bottom-0 left-0 p-8 md:p-12 z-10 text-white max-w-xl">
                     <div className="uppercase text-xs font-bold tracking-widest mb-4 opacity-90">
-                        JBL
+                        {right.client}
                     </div>
                     <h2 className="text-3xl md:text-5xl font-light mb-8 leading-tight">
-                        Live like a champion with Jerome Boateng
+                        {right.description}
                     </h2>
                     <div className="flex items-center text-sm font-bold uppercase tracking-wider opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
                         <span className="mr-2">Read more</span>
@@ -57,4 +68,4 @@ const EqualSplitSectionTwo = () => {
     );
 };
 
-export default EqualSplitSectionTwo;
+export default DualFeatureSection;

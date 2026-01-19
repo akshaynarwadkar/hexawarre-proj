@@ -77,7 +77,7 @@ const ContactSection = () => {
                     </h2>
                 </div>
 
-                <form onSubmit={handleSubmit} className="w-full md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
+                <form onSubmit={handleSubmit} noValidate className="w-full md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
 
                     <div className="order-1">
                         <label htmlFor="name" className="block text-xs font-bold tracking-widest text-gray-500 uppercase mb-2">Name</label>
